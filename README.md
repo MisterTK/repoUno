@@ -15,18 +15,18 @@ repoUno is a Python script that collects the contents of a Git repository into a
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/repouno.git
+   git clone https://github.com/yourusername/repoUno.git
    ```
 2. Navigate to the project directory:
    ```
-   cd repouno
+   cd repoUno
    ```
 3. Ensure you have Python 3.6+ installed.
 
 ## Basic Usage
 
 ```
-python repouno.py /path/to/repo [options]
+python repoUno.py /path/to/repo [options]
 ```
 
 ### Options
@@ -45,7 +45,7 @@ python repouno.py /path/to/repo [options]
 Here's an example of using repoUno with more advanced options:
 
 ```bash
-python repouno.py /path/to/your/project \
+python repoUno.py /path/to/your/project \
   --output project_analysis.json \
   --ignore "*.log" "*.tmp" "node_modules/*" \
   --include "src/*" "tests/*" "*.md" \
@@ -66,31 +66,6 @@ This command will:
 - Set a max file size of 1MB and a max total size of 20MB
 - Enable verbose logging
 
-## Workflow
-
-Here's a simplified flowchart of how repoUno works:
-
-```mermaid
-graph TD
-    A[Start] --> B[Parse Arguments]
-    B --> C[Process Repository]
-    C --> D{For each file}
-    D --> E{File passes filters?}
-    E -->|No| D
-    E -->|Yes| F[Process File]
-    F --> G[Deduplicate Content]
-    G --> D
-    D -->|All files processed| H[Generate JSON Output]
-    H --> I[End]
-
-    subgraph "File Processing"
-    F --> F1[Read Content]
-    F1 --> F2[Minify Code]
-    F2 --> F3[Extract Summary]
-    end
-```
-
-This flowchart provides a high-level overview of the repoUno script's workflow.
 
 ## Using repoUno Output with an LLM
 
